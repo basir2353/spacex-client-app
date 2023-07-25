@@ -294,3 +294,6 @@
 .navy-blue-text {
   color: navy;
 }
+.app-container.dark a {
+  color: white;
+}
