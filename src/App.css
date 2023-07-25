@@ -297,3 +297,9 @@
 .app-container.dark a {
   color: white;
 }
+.search-bar input {
+  color: black;
+}
+a {
+  text-decoration: none;
+}
