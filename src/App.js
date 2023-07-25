@@ -9,6 +9,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCard, setSelectedCard] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     fetch('https://api.spacexdata.com/v3/launches')
@@ -35,9 +36,30 @@ const App = () => {
     setSelectedCard(selectedLaunch);
   };
 
+  const handleThemeToggle = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <Router>
-      <div className="app-container">
+      <div className={`app-container ${darkMode ? 'dark' : ''}`}>
+        {/* Add the toggle switch here */}
+        <label className="theme">
+          <input type="checkbox" className="theme__toggle" onChange={handleThemeToggle} />
+          <div className="theme__fill"></div>
+          <div className="theme__icon">
+            <div className="theme__icon-part"></div>
+            <div className="theme__icon-part"></div>
+            <div className="theme__icon-part"></div>
+            <div className="theme__icon-part"></div>
+            <div className="theme__icon-part"></div>
+            <div className="theme__icon-part"></div>
+            <div className="theme__icon-part"></div>
+            <div className="theme__icon-part"></div>
+            <div className="theme__icon-part"></div>
+          </div>
+        </label>
+
         <h1>SpaceX Launches</h1>
         <div className="search-bar">
           <div className="container">
